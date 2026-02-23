@@ -104,7 +104,7 @@ const Footer = () => {
             </a>
           </p>
           <p className="font-body text-sm text-cream/40 hidden md:block">
-            Built with faith in rural India.
+            Built with hope in rural India.
           </p>
         </div>
       </div>
