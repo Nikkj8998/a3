@@ -213,12 +213,12 @@ const AboutUs = () => {
           </div>
         </section>
 
-        {/* Lead Advisory Section - Profile Display Design */}
-        <section className="section-padding bg-[#0a0f18] text-white">
+        {/* Lead Advisory Section - Light Profile Display Design */}
+        <section className="section-padding bg-cream/50">
           <div className="container-wide">
             <ScrollReveal>
               <div className="text-center mb-16">
-                <h2 className="font-display text-4xl text-golden mb-4">
+                <h2 className="font-display text-4xl text-primary mb-4">
                   Lead Advisors & Experts
                 </h2>
                 <div className="w-24 h-1 bg-golden mx-auto"></div>
@@ -228,48 +228,48 @@ const AboutUs = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {leadAdvisors.map((member, index) => (
                 <ScrollReveal key={member.name} delay={index * 0.1}>
-                  <div className="relative bg-[#111827] border border-white/10 rounded-[2rem] p-8 h-full flex flex-col items-center text-center group hover:bg-[#1f2937] transition-all duration-300">
+                  <div className="relative bg-white border border-forest-dark/10 rounded-[2rem] p-8 h-full flex flex-col items-center text-center group hover:border-golden/50 hover:shadow-xl transition-all duration-300">
                     {/* Experience Badge */}
                     {member.experience && (
-                      <div className="absolute top-8 right-8 bg-blue-600/20 text-blue-400 text-[10px] font-bold px-2 py-1 rounded-full border border-blue-600/30">
+                      <div className="absolute top-8 right-8 bg-golden/10 text-golden text-[10px] font-bold px-3 py-1 rounded-full border border-golden/20">
                         {member.experience}
                       </div>
                     )}
 
                     {/* Profile Image */}
                     <div className="relative mb-6">
-                      <div className="w-24 h-24 rounded-full border-2 border-white/20 p-1 overflow-hidden">
+                      <div className="w-24 h-24 rounded-full border-2 border-golden/20 p-1 overflow-hidden bg-cream">
                         <img 
                           src={member.image} 
                           alt={member.name} 
-                          className="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-500"
+                          className="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-500"
                         />
                       </div>
                     </div>
 
                     {/* Info */}
-                    <h4 className="font-display text-xl mb-1 text-white group-hover:text-golden transition-colors">
+                    <h4 className="font-display text-xl mb-1 text-primary group-hover:text-golden transition-colors">
                       {member.name}
                     </h4>
-                    <p className="font-body text-xs font-semibold text-blue-400 uppercase tracking-widest mb-4">
+                    <p className="font-body text-[10px] font-bold text-golden uppercase tracking-widest mb-4">
                       {member.role}
                     </p>
                     
-                    <p className="font-body text-sm text-gray-400 leading-relaxed mb-8 flex-grow">
+                    <p className="font-body text-sm text-muted-foreground leading-relaxed mb-8 flex-grow">
                       {member.bio}
                     </p>
 
                     {/* LinkedIn Footer */}
-                    <div className="w-full pt-6 border-t border-white/5 flex items-center justify-between">
-                      <span className="text-[10px] text-gray-500 font-medium">
-                        {member.experience ? `${member.experience.split('+')[0]}+ years of experience` : ""}
+                    <div className="w-full pt-6 border-t border-forest-dark/5 flex items-center justify-between">
+                      <span className="text-[10px] text-muted-foreground font-medium italic">
+                        {member.experience ? `${member.experience.split('+')[0]}+ years of expertise` : ""}
                       </span>
                       {member.linkedin && (
                         <a 
                           href={member.linkedin} 
                           target="_blank" 
                           rel="noopener noreferrer"
-                          className="bg-blue-600/10 p-2 rounded-lg text-blue-400 hover:bg-blue-600 hover:text-white transition-all"
+                          className="bg-primary/5 p-2 rounded-lg text-primary hover:bg-primary hover:text-white transition-all shadow-sm"
                         >
                           <Linkedin className="w-4 h-4" />
                         </a>
