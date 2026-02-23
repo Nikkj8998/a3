@@ -10,6 +10,7 @@ import {
   Award,
   Target,
   Eye,
+  Linkedin,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -27,24 +28,31 @@ const AboutUs = () => {
       name: "Ms Seemantinee Khot",
       role: "Leader in Sustainable Development & Corporate Governance",
       image: "/images/seemantinee-khot.png",
+      linkedin: "https://www.linkedin.com/in/seemantinee-khot-9b2b0211/",
+      experience: "40+ Y",
       bio: "A farmer by choice, she has 40+ years’ experience across the UN, NGOs, and CSR. As an Independent Director for Suzlon Energy and Partner at CHHAYA, she specializes in gender integration, rural livelihoods, and community-based institutions. A Senior Evaluation Specialist (FAO), Harvard initiative founder, and MASW (TISS) graduate, she leads boards for Paryay and YUVA Rural Association.",
     },
     {
       name: "Satish Khade",
       role: "Civil Engineer, Water Expert, and Environmental Advocate",
       image: "/images/satish-khade.jfif",
+      linkedin: "https://www.linkedin.com/in/satish-khade-840195179/",
+      experience: "12+ Y",
       bio: "A B.E. Civil engineer and renowned water expert dedicated to community 'water literacy' for over 12 years. Author of Abhinav Jalnayak and a prolific columnist, he has delivered 600+ environmental lectures. As a Rotary District Director, he has implemented vital water projects across 142 villages, earning the prestigious 'Paryavaran Rakshak' award.",
     },
     {
       name: "Biren Sudhir Vora",
       role: "Bridging Corporate Leadership, Academia, and Social Impact",
       image: "/images/biren-vora.png",
+      linkedin: "https://www.linkedin.com/in/birenvora/",
+      experience: "30+ Y",
       bio: "A multi-disciplinary leader with over three decades of corporate experience. An IIT Madras alumnus and PhD candidate at IIT Delhi, he serves as Professor-of-Practice at Navrachana University. As Founder of Ekaagra Social & Microfinance Foundation, Biren has driven significant change, including spearheading water security initiatives for 180 villages in Gujarat.",
     },
     {
       name: "Sanjay Mahadeo Bobade",
       role: "Business Transformation Leader & Growth Facilitator",
       image: "/images/sanjay-bobade.png",
+      experience: "25+ Y",
       bio: "A dedicated Business Transformation Leader focused on creating impactful solutions for Indian society. As Founder of Yuga Globe Tech, he drives initiatives in Health-Insurance, Agri-tech, and Vocational Enrichment. With a background at Microsoft, PwC, and NISG, he excels in digital government transformation. He is an alumnus of IIT Mumbai and IIM Ahmedabad.",
     },
   ];
@@ -80,9 +88,6 @@ const AboutUs = () => {
       role: "Trustee (Historical)",
       icon: <Users className="w-8 h-8" />,
     },
-  ];
-
-  const leadership = [
     {
       name: "Dr Anagha Joshi",
       role: "Director and Senior Consultant",
@@ -208,43 +213,67 @@ const AboutUs = () => {
           </div>
         </section>
 
-        {/* Lead Advisory Section - High Priority */}
-        <section className="section-padding bg-forest-dark/5">
+        {/* Lead Advisory Section - Profile Display Design */}
+        <section className="section-padding bg-[#0a0f18] text-white">
           <div className="container-wide">
             <ScrollReveal>
               <div className="text-center mb-16">
-                <h2 className="font-display text-4xl text-primary mb-4">
+                <h2 className="font-display text-4xl text-golden mb-4">
                   Lead Advisors & Experts
                 </h2>
                 <div className="w-24 h-1 bg-golden mx-auto"></div>
               </div>
             </ScrollReveal>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {leadAdvisors.map((member, index) => (
-                <ScrollReveal key={member.name} delay={index * 0.05}>
-                  <div className="bg-white p-6 rounded-2xl h-full shadow-md border border-golden/20 hover:border-golden transition-all group text-center flex flex-col">
-                    <div className="w-32 h-32 bg-golden/10 rounded-2xl mx-auto mb-6 flex items-center justify-center text-golden group-hover:bg-golden group-hover:text-white transition-colors overflow-hidden shadow-inner flex-shrink-0">
-                      {'image' in member ? (
+                <ScrollReveal key={member.name} delay={index * 0.1}>
+                  <div className="relative bg-[#111827] border border-white/10 rounded-[2rem] p-8 h-full flex flex-col items-center text-center group hover:bg-[#1f2937] transition-all duration-300">
+                    {/* Experience Badge */}
+                    {member.experience && (
+                      <div className="absolute top-8 right-8 bg-blue-600/20 text-blue-400 text-[10px] font-bold px-2 py-1 rounded-full border border-blue-600/30">
+                        {member.experience}
+                      </div>
+                    )}
+
+                    {/* Profile Image */}
+                    <div className="relative mb-6">
+                      <div className="w-24 h-24 rounded-full border-2 border-white/20 p-1 overflow-hidden">
                         <img 
-                          src={(member as any).image} 
+                          src={member.image} 
                           alt={member.name} 
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-500"
                         />
-                      ) : (
-                        <div className="p-4">{(member as any).icon}</div>
-                      )}
+                      </div>
                     </div>
-                    <div className="flex-grow">
-                      <h4 className="font-display text-xl mb-2 text-primary">
-                        {member.name}
-                      </h4>
-                      <p className="font-body text-xs font-bold text-golden uppercase tracking-wider mb-4 leading-tight">
-                        {member.role}
-                      </p>
-                      <p className="font-body text-sm text-muted-foreground leading-relaxed text-justify">
-                        {(member as any).bio}
-                      </p>
+
+                    {/* Info */}
+                    <h4 className="font-display text-xl mb-1 text-white group-hover:text-golden transition-colors">
+                      {member.name}
+                    </h4>
+                    <p className="font-body text-xs font-semibold text-blue-400 uppercase tracking-widest mb-4">
+                      {member.role}
+                    </p>
+                    
+                    <p className="font-body text-sm text-gray-400 leading-relaxed mb-8 flex-grow">
+                      {member.bio}
+                    </p>
+
+                    {/* LinkedIn Footer */}
+                    <div className="w-full pt-6 border-t border-white/5 flex items-center justify-between">
+                      <span className="text-[10px] text-gray-500 font-medium">
+                        {member.experience ? `${member.experience.split('+')[0]}+ years of experience` : ""}
+                      </span>
+                      {member.linkedin && (
+                        <a 
+                          href={member.linkedin} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="bg-blue-600/10 p-2 rounded-lg text-blue-400 hover:bg-blue-600 hover:text-white transition-all"
+                        >
+                          <Linkedin className="w-4 h-4" />
+                        </a>
+                      )}
                     </div>
                   </div>
                 </ScrollReveal>
@@ -254,7 +283,7 @@ const AboutUs = () => {
         </section>
 
         {/* Trustees Section - Professional Style */}
-        <section className="section-padding">
+        <section className="section-padding bg-white">
           <div className="container-wide">
             <ScrollReveal>
               <div className="text-center mb-16">
@@ -288,46 +317,6 @@ const AboutUs = () => {
                         {member.role}
                       </p>
                     </div>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Leadership Section */}
-        <section className="section-padding">
-          <div className="container-wide">
-            <ScrollReveal>
-              <div className="text-center mb-16">
-                <h2 className="font-display text-4xl text-primary mb-4">
-                  Senior Leadership
-                </h2>
-                <div className="w-24 h-1 bg-golden mx-auto"></div>
-              </div>
-            </ScrollReveal>
-
-            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              {leadership.map((member, index) => (
-                <ScrollReveal key={member.name} delay={index * 0.1}>
-                  <div className="bg-white p-8 rounded-2xl h-full shadow-sm border border-border/50 text-center group hover:shadow-md transition-shadow">
-                    <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-colors overflow-hidden">
-                      {'image' in member ? (
-                        <img 
-                          src={(member as any).image} 
-                          alt={member.name} 
-                          className="w-full h-full object-cover"
-                        />
-                      ) : (
-                        (member as any).icon
-                      )}
-                    </div>
-                    <h3 className="font-display text-xl mb-2 text-primary">
-                      {member.name}
-                    </h3>
-                    <p className="font-body text-muted-foreground text-sm">
-                      {member.role}
-                    </p>
                   </div>
                 </ScrollReveal>
               ))}
